@@ -1,5 +1,5 @@
 # `reporanger/superpowers`
-Extend this configuration to give your Ranger config superpowers
+Extend this configuration to give your Ranger installation superpowers
 
 ## Usage
 
