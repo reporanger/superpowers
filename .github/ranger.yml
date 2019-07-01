@@ -1,7 +1,8 @@
 default:
   close:
     comment: ⚠️ This has been marked to be closed in $DELAY.
-    delay: 604800000
+    delay: 7d
+
 labels:
   wontfix: close
   invalid: close
@@ -11,15 +12,14 @@ labels:
     comment: This issue has been marked as a duplicate. Closing in $DELAY . . .
   stale:
     action: close
-    delay: 7d
     comment: false
   "squash when passing": merge
   "rebase when passing": merge
   "merge when passing": merge
-  remind:
+  reminder:
     action: comment
     delay: 1d
-    message: You asked me to remind you about this $DELAY ago
+    message: You asked to remind you about this $DELAY ago
 
 merges:
   - action: delete_branch
@@ -34,7 +34,7 @@ comments:
   - action: label
     pattern: /remind/i
     labels:
-      - remind
+      - reminder
   - action: delete_comment
     pattern: /remind/i
 
