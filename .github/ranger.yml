@@ -1,0 +1,55 @@
+default:
+  close:
+    comment: ⚠️ This has been marked to be closed in $DELAY.
+    delay: 604800000
+labels:
+  wontfix: close
+  invalid: close
+  duplicate:
+    action: close
+    delay: 1d
+    comment: This issue has been marked as a duplicate. Closing in $DELAY . . .
+  stale:
+    action: close
+    delay: 7d
+    comment: false
+  squash when passing: merge
+  rebase when passing: merge
+  merge when passing: merge
+  remind:
+    action: comment
+    delay: 1d
+    message: You asked me to remind you about this $DELAY ago
+
+merges:
+  - action: delete_branch
+
+comments:
+  - action: label
+    pattern: /duplicate of/i
+    labels:
+      - duplicate
+  - action: delete_comment
+    pattern: '+1'
+  - action: label
+    pattern: /remind/i
+    labels:
+      - remind
+  - action: delete_comment
+    pattern: /remind/i
+
+commits:
+  - action: label
+    pattern: /merge when passing/i
+    labels:
+      - merge when passing
+  - action: label
+    pattern: /squash when passing/i
+    labels:
+      - squash when passing
+  - action: label
+    pattern: /rebase when passing/i
+    labels:
+      - rebase when passing
+
+# TODO conventional change log
