@@ -13,9 +13,9 @@ labels:
     action: close
     delay: 7d
     comment: false
-  squash when passing: merge
-  rebase when passing: merge
-  merge when passing: merge
+  "squash when passing": merge
+  "rebase when passing": merge
+  "merge when passing": merge
   remind:
     action: comment
     delay: 1d
